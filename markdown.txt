@@ -1,0 +1,1147 @@
+# **SYSTEM ANALYSIS AND DESIGN LABORATORY** 
+
+CSE-3411 (L) 
+
+#### **C2S - A Garments Management System** 
+
+## **Team The Blueprints** 
+
+
+
+<!-- Start of picture text -->
+Taskin Amir (0112310443)                                  Rakibul Islam (0112230164)<br>                 Hosain Masba Tamim  (0112320231)                                  Jahida Alam (0112230462)<br>                                                         Mst Riya Akter Satu (0112310147)<br><!-- End of picture text -->
+
+### Table of Content 
+
+|Abstract............................................................................................................................ 5|
+|---|
+|Acknowledgement........................................................................................................... 5|
+|CHAPTER 1:|
+|Introduction...................................................................................................................... 6|
+|1.1 Purpose:...........................................................................................................6|
+|1.2 Problem Statement:........................................................................................ 6|
+|1.2.1 Problem Background:........................................................................ 6|
+|1.2.2 Problem Description:..........................................................................6|
+|1.2.3 Problem Reasoning:.......................................................................... 7|
+|1.3 Goal:............................................................................................................... 7|
+|1.4 System Development Life Cycle (SDLC):....................................................... 8|
+|CHAPTER 2: System Study or Information Gathering...................................................10|
+|2.1 Introduction:...................................................................................................10|
+|2.2 Information Sources:......................................................................................10|
+|2.2.1 Internal Sources...............................................................................10|
+|2.2.2 External Sources..............................................................................10|
+|2.3 Information Gathering....................................................................................10|
+|2.3.1 Internal Sources...............................................................................10|
+|2.3.2 External Sources..............................................................................11|
+|2.5 Research Papers :....................................................................................................11|
+|2.6 Similar Websites...................................................................................................... 12|
+|Logic Software Ltd:............................................................................................. 12|
+|ERPTECH:...........................................................................................................12|
+|Nextzen RMG ERP :........................................................................................... 12|
+|GCTL Infosys:......................................................................................................12|
+|Software Shell:.....................................................................................................12|
+|2.7 Define and Desired State..........................................................................................12|
+|Define (Current State):.........................................................................................12|
+|Desired State:..................................................................................................... 12|
+|CHAPTER 3: System|
+|Analysis..........................................................................................................................14|
+|3.1 Introduction................................................................................................... 14|
+|3.2 Gap Analysis:.................................................................................................14|
+|Targeted Gap Analysis: What Others Lack That C2S Offer……….......... 14|
+|3.3 Benchmark:....................................................................................................16|
+|23.4 Survey:.........................................................................................................16|
+
+
+
+|3.4.1 Survey Methodology........................................................................ 16|
+|---|
+|3.4.2 Survey Results and Analysis:.......................................................... 20|
+|3.5 SWOT ANALYSIS..........................................................................................29|
+|Chapter  4: Design of the System................................................................................. 32|
+|4.1 Introduction................................................................................................... 32|
+|4.2 Context Diagram........................................................................................... 33|
+|4.3 Use-Case Diagram....................................................................................... 34|
+|4.3.1 USE CASE Description:...................................................................34|
+|Use-Case ID: UC-001................................................................... 34|
+|Use-Case ID: UC-002................................................................... 35|
+|Use-Case ID: UC-003................................................................... 35|
+|Use-Case ID: UC-004................................................................... 36|
+|Use-Case ID: UC-005................................................................... 36|
+|4.4 Activity Diagram……..................................................................................... 38|
+|4.5 DFD Diagram…............................................................................................ 42|
+|4.6 CRC Card …...…………………………………………………………………… 43|
+|4.7 Class Diagram……………………………………………………………………..44|
+|4.8 State Diagram……………………………………………………………………..45|
+|4.9 Sequence Diagram……………………………………………………………….46|
+|Chapter 5: ProtoType or UI Design………………………………………………………….48|
+|5.1 Introduction………………………………………………………………………  48|
+|5.2 Prototyping Tools Used…………………………………………………………. 48|
+|5.3 UI Design…………………………………………………………………………  48|
+|Rules Of UI Design………………………………………………………48|
+|Mandel’s Golden Rules………………………………………………….48|
+|Place Users in Control………………………………………………….  49|
+|Reduce Users’ Memory Load………………………………………….. 49|
+|5.3.1 Color Palette…………………………………………………………….49|
+|5.3.2 Typography………………………………………………………………50|
+|5.3.3 Layout   ………………………………………………………………….50|
+|5.3.4 Key Features…………………………………………………………….  50|
+|5.4 Sitemap…………………………………………………………………………… 52|
+|5.4.1 Overview Of Sitemap…………………………………………………..  52|
+|5.4.2 The Flow Of Navigation……………………………………….……….  55|
+|Conclusion……………………………………………………………………………. . 55|
+
+
+
+### **Abstract:** 
+
+**C2S -** A Smart Garment Factory Management System capable of automating various factory activities. It is a system that combines performance monitoring, safety reporting, factory simulation, quality management, equipment maintenance, scheduling, and inventory management. It provides all these functions using a smart management system. 
+
+This technology improves the productivity and accuracy of factory output and processing through the provision of real-time information and analysis by artificial intelligence. The system decreases the need for human input and the associated risks of delays and poor working conditions. 
+
+### **Acknowledgement** 
+
+We would like to extend our sincere appreciation to all individuals who have, in any way, contributed to the development of our system, C2S. Our system is developed to be a reliable and intelligent solution for smooth functioning. It incorporates automation, real-time data, and intelligent decision-making techniques. 
+
+We would like to extend our sincerest gratitude to our guides for their immeasurable contributions and support towards completing this project. We would also wish to extend our sincerest gratitude to our peers for their contributions towards completing this project. Additionally, a big thank you goes to our testers for their contributions towards completing this project. 
+
+We would like to recognize the assistance, tools, and resources that contributed to the successful implementation of the C2S process. This initiative has been made possible through the combined efforts of everyone involved, and we hope that the system will prove to be useful for its users. 
+
+Sincerely Team The Blueprints 
+
+### **CHAPTER 1: Introduction** 
+
+###### **1.1 Purpose:** 
+
+The aim of this project is to design and propose an AI assistant Factory Worker Management and Production Optimization System that works towards ensuring proper remuneration of factory workers, enhancing factory safety and ensuring efficient production is achieved in a small and medium scale factory. 
+
+Many factories today use manual processes in assessing employees, payroll, safety, and production planning, which in most cases translates to inefficiency and losses. The proposed system will therefore focus on automating these processes to ensure efficiency and accountability. The system still looks to be effective and efficient for small business ventures. 
+
+###### **1.2 Problem Statement:** 
+
+Small and medium sized factories have many challenges performing their operations concerning worker management, production efficiency and financial management. The lack of a comprehensive digital platform causes problems such as  unfair remuneration, insufficient safety monitoring, inefficient production planning, and resource wastage 
+
+###### **1.2.1 Problem Background:** 
+
+In many emerging manufacturing systems, particularly in related garments or light Industries, factory process controls utilise paper documentation systems or unrefined computer systems. Worker remuneration rates tend to be subjective,  safety problems remain unreported either because of communication constraints or fear, and manufacturing process decisions tend to be poorly forecast or simulated. 
+
+Therefore, both laborers and factory owners are adversely affected. Laborers are poorly treated and are not provided a safety environment, while owners are faced with decreased production, losses and uncertainty. 
+
+###### **1.2.2 Problem Description:** 
+
+The code issues dealt with within the project are: 
+
+- Discriminating remuneration of the workers owing to the absence of optimal assessment of their performance. 
+
+- Inadequate processes for reporting worker safety issues particularly for non English speaking employees. 
+
+- Inaccurate production planning resulting in delays and failure to achieve targets. 
+
+- High defects and waste because of insufficient analysis of quality control and unplanned machine failures leading to downtime and higher maintenance expenses. 
+
+- Challenges facing auditors and audited businesses when preparing for audits and reporting. 
+
+- Poor demand forecasting and inventory management, leading to overstocking or inventory shortages. 
+
+These challenges are interwound, therefore not easily comprehended in disconnected systems. 
+
+###### **1.2.3 Problem Reasoning:** 
+
+The reasons for such problems reside in the absence of an intelligent management system suitable for small and medium scale factories. The current situation in this area is that management methods are normally 
+
+- Too expensive 
+
+- Too complex 
+
+- Design only for large companies 
+
+Without real time data, predictive analytics, or worker friendly interfaces, factories just don't have anything better than guesswork to go on, so they’re stuck in inefficient systems they don't trust. 
+
+###### **1.3 Goal:** 
+
+The main objective of this work is to develop a centralised AI assisted system that: 
+
+- Ensure the rating of workers is fair and biased as well as their payment. 
+
+- Provides a Bangla-based safety reporting system for workers. 
+
+- Improves quality control and waste reduction. 
+
+- It enables predictive maintenance of machines. 
+
+- It is easy to do compliance and buyer audit reporting. 
+
+- Supports financial planning, inventory control, and sequencing of jobs. 
+
+- It brings more transparency, productivity and sustainability to small and medium factories. 
+
+###### **1.4 System Development Life Cycle (SDLC):** 
+
+
+
+Figure: SDLC 
+
+This project follows a design-oriented System Development Life Cycle (SDLC) focused on UI/UX prototyping using Figma, rather than full software development. 
+
+###### **SDLC Phases:** 
+
+**1. Requirement Analysis:** 
+
+Identified factory worker management issues through service and research. 
+
+**2. Feature Planning & Scope Definition:** 
+
+   - Finalised core features and supporting features developed around user needs. 
+
+**3. User Flow & Information Architecture:** 
+
+Designed system structure, user rules, and navigation flow. 
+
+**4. UI/UX Design & Prototyping (Figma):** 
+
+Developed wireframes  and high fidelity interactive screens. 
+
+**5. Review & Refinement:** 
+
+Designs that have been developed based on feedback and usability. 
+
+**6. Final Prototype & Documentation:** 
+
+Created a functional Figma prototype for future development 
+
+**7. Operation and Maintenance:** 
+
+Fixing bugs,deploying the systems and providing ongoing updates to ensure the management tool is efficient for factory workers. 
+
+### **Chapter 2:System study or Information Gathering** 
+
+###### **2.1 Introduction:** 
+
+This chapter represents a detailed description of the existing systems, practices and challenges in factory and small manufacturing units or managements specially for the garment industry. The aim of this system study is to analyse the current process and acquire information for designing an optimal user-friendly management system. Information was gathered from various sources such as references from  academic resources,ERP platforms, online tools and user surveys to make sure that it  covers practical issues that can be solved by the proposed system. 
+
+###### **2.2 Information Source:** 
+
+In order to understand the domain fully, both internal and external information sources of knowledge are considered. 
+
+###### **2.2.1 Internal Sources:** 
+
+Internal sources  of information will include knowledge that is derived from people and information that is related to the project. 
+
+- Feedback from faculty members and students 
+
+- Responses from Survey participants related to the industry 
+
+- Academic knowledge related to production system and operation management 
+
+- Class discussions and consultations 
+
+###### **2.3 Information Gathering:** 
+
+###### **2.3.1 Internal Sources:** 
+
+- Conduct online service to determine issues related to worker payment, safety and productivity. 
+
+- Informal interviews with staff and students who are knowledgeable about industrial activities. 
+
+- Analysing  survey data to find common challenges and expectations. 
+
+###### **2.3.2 External Sources:** 
+
+- Analysis of the features of existing systems in the area of ERP and manufacturing systems 
+
+- Analysing UI/UX patterns from competitor websites . 
+
+- Analysis of documents and product information about the different types of ERP systems. 
+
+- Reading articles on production efficiency,audit compliance and factory digitalization. 
+
+###### **2.4 Research Papers:** 
+
+_“Optimising fairness in production planning: A Human Centric method for machine and labour allocation”_ 
+
+Authors: Alexander Nasuta et al.(2025) — arXiv Link:(arXiv preprint) arXiv 
+
+Summary: This paper proposes a human centric production planning methodology that seeks to address  machine   scheduling and human resource allocation together. The methodology considers experience and fairness and is  based on constraint programming and reinforcement learning,  as it  relaxes closely to the objectives of fairness in payment and optimal production. 
+
+_“Sustainability through Cognition Aware Safety Systems— Next level Human Machine interaction”_ 
+
+Author: Minahil Khurram et al (2025) —Processes (MDPI) Link:(MDPI Article) <u>MDPI</u> 
+
+Summary:In this peer reviewed article AI is discussed in relation to worker safety in a manufacturing setting. It enhances worker safety by providing predictive analytics, computer vision and real time hazard  mitigation. It supports both safety reporting and predictive functions of your system. It explores how AI frameworks can be utilized for automated hazard detection and prevention. 
+
+###### **2.5 Similar Websites:** 
+
+Comparative study has been done on different ERP solutions and factory management systems in use in Bangladesh, particularly in the RMG and textile industry. 
+
+|**Company/Platform**|**Key Focus**|
+|---|---|
+|**Logic Software Ltd(Platform ERP)**|Established ERP for RMG and textile;<br>covers production, TNA, QC, store, IE<br>and planning.|
+|**ERPTECH(Apparels ERP)**|Cloud based ERP; barcode based<br>production tracking and machine wise<br>reports.|
+|**NextZen RMG ERP**|Inventory monitoring, costing analysis,<br>production planning and remote access.|
+|**GTCL Infosys (Garments ERP)**|Customizable ERP; MRP,  inventory, QC,<br>sub contracting, buyer PO management.|
+|**Software Shell**|Apparel and textile ERP; incentive payroll;<br>cut marker planning.|
+|**ERP.COM.BD**|Modular ERP; warehouse and<br>manufacturing management.|
+|**ERPSoftware.com BD**|Manufacturing ERP; real time reporting,<br>machine integration multi location<br>support.|
+|**POTOTRACKER (via Skylark soft /**<br>**textile learner)**|Real time production tracking; order<br>tracking, Sewing finishing,MIS reports .|
+
+
+
+###### **Observations:** 
+
+- The majority of these models are  primarily concerned with large factories. 
+
+- These interfaces are usually complex and technical in nature. 
+
+- However worker centric features like payment fairness and reporting of safety issues are limited . 
+
+- Small factory owners face difficulties due to high cost and system complexity. 
+
+###### **2.6 Define and Desired State:** 
+
+Define (Current State): 
+
+- Manual or semi digital worker assessment or evolution systems. 
+
+- Inaccurate or biased wage or incentive computations. 
+
+- Few mechanisms to report worker safety computations. 
+
+- Lack of insight into  production efficiency and machine condition. 
+
+- Complex ERP systems are not appropriate for small factories. 
+
+###### Desired State: 
+
+- Transparency and performance pest payment system for workers. 
+
+- Production prediction outputs and  machine maintenance. 
+
+- User friendly dashboarding for small business owners cost effective modular and user friendly factory management system. 
+
+### **CHAPTER 3: System Analysis** 
+
+###### **3.1 Introduction:** 
+
+System analysis involves an important stage where the existing solutions are assessed and the gaps between the existing systems and the requirements of the users are identified. In this chapter, the gaps in the existing factory and manufacturing management systems have been analyzed. 
+
+It is aimed at worker fairness,safety, usability ,and affordability in a small factory,which are normally neglected while implementing ERP in traditional systems. After this analysis, a gap analysis and benchmarking are done. 
+
+###### **3.2 Gap Analysis:** 
+
+Targeted Gap Analysis: What Existing Systems Lack and What Our System Offers 
+
+Most of the current existing systems of ERP and factory management in Bangladesh are designed with a focus on large sized factories, and their inclination was not towards worker centric fairness and accessibility. The gaps that were identified are: 
+
+###### **1. Worker Performance & Fair Payment** 
+
+###### **● Existing Systems:** 
+
+- Anecdotal limited transparency in worker evaluation 
+
+- Incentive and wage calculation is often done manually. Presence of bias in performance evaluation 
+
+###### **● Our System :** 
+
+Transparent, ratings-based performance appraisal 
+
+Performance-linked incentives and wage calculation 
+
+Clear visibility to workers and management alike 
+
+###### **2. Worker Safety & Reporting** 
+
+###### **● Existing Systems:** 
+
+Safety reporting is mostly either totally absent or highly formal. 
+
+Language barriers are a limiting factor to worker participation. 
+
+- **Our System:** 
+
+   - A simple, Bangla-based safety reporting interface 
+
+   - Encourages participation by the workers and early reporting of any issues. 
+
+###### **3. Production Planning & Forecasting** 
+
+- **Existing Systems:** 
+
+   - Pay more attention to historical reporting, rather than early prediction. This would limit simulations for minor factories. 
+
+- **Our System:** 
+
+   - Early production output prediction 
+
+Production simulation to support better planning decisions 
+
+###### **4. Small Business Usability** 
+
+- **Existing Systems:** 
+
+   - Complex interfaces containing technical vocabulary High implementation and training costs 
+
+###### **● Our System:** 
+
+- Clean, intuitive UI targeted toward non-technical users. Suitable for small and medium factories 
+
+###### **5. Machine Health & Downtime** 
+
+- **Existing Systems:** 
+
+   - Reactive maintenance approaches 
+
+   - Usually, downtime analysis is done post-failure. 
+
+- **Our System:** 
+
+   - Predictive maintenance indicators 
+
+Early notifications to reduce downtime and maintenance cost 
+
+###### **6. Compliance & Audit Support** 
+
+###### **● Existing Systems:** 
+
+Manual audit preparation 
+
+Limited automation for buyer inspections 
+
+###### **● Our System:** 
+
+- Automate compliance and audit report generation. 
+
+- Saving time for the owners of the factories when it comes to inspections. 
+
+###### **3.3 Benchmark:** 
+
+For the benchmarking analysis,the proposed system was compared with the existing ERP systems available in Bangladesh. This was based on important factors. 
+
+
+
+Figure: Benchmark 
+
+###### **3.4 Survey:** 
+
+In our endeavour for constant improvement and customer focused development,we conducted a customer satisfaction survey to measure the sentiment and feedback of our valuable customers about our newest product. The aim of the survey was to find areas of improvement and learn how our product will meet the expectations of customers. 
+
+###### **3.4.1 Survey Methodology:** 
+
+A structured online survey was carried out to seek the views and comments of the people on the proposed system. 
+
+The targeted populations of interest with this survey are faculty members and students, as they academically know about manufacturing systems, industrial engineering, and management practices. 
+
+- **Survey Tool:** Google Forms 
+
+- **Target Participants:** 
+
+   - Faculty Members 
+
+   - University Students (Engineering / Business / Management) 
+
+###### **The method of sampling was that of convenience sampling.** 
+
+- **Question Types:** 
+
+      - Multiple choices 
+
+      - Likert scale/rating-based questions 
+
+      - Limited number of optional open-ended questions 
+
+- **Focus Areas:** 
+
+   - Fair payment of workers; evaluation 
+
+   - Worker Safety and Reporting 
+
+   - Production forecast and planning 
+
+   - Financial and Operational Challenges faced by small factories 
+
+The questions were framed in a way that they sounded as non-technical as possible, to be able to make the feedback as accessible and unbiased as possible. 
+
+###### **Survey Questions:** 
+
+<mark>1. Which role best describes you? ( আপনােক �কান ভ</mark> ূ <mark>িমকাট</mark> ি <mark>সবেচেয় ভােলাভােব বণনা</mark> � <mark>কের ? )</mark> 
+
+<mark>2. Department / Field of Study ( িবভাগ / অধ</mark> ্য <mark>য়েনর �ক</mark> ্ষ <mark>ত )</mark> ্র 
+
+<mark>3. Do you have any knowledge/experience related to manufacturing, garments, or production management? ( উৎপাদন , গােমন</mark> � ্ট <mark>স বা �প</mark> ্র <mark>াডাকশন ম</mark> ্য <mark>ােনজেমন</mark> ্ট <mark>সমিক</mark> ্প � <mark>ত �কােনা জ</mark> ্ঞ <mark>ান / অিভজ</mark> ্ঞ <mark>তা আেছ িক ? )</mark> 
+
+<mark>4. How familiar are you with worker management issues (fair payment, safety, performance tracking)? ( শ</mark> ্র <mark>িমক ব</mark> ্য <mark>বস</mark> ্থ <mark>াপনার সমস</mark> ্য <mark>াগেলা</mark> ু <mark>( ন</mark> ্য <mark>ায</mark> ্য <mark>�বতন , িনরাপত</mark> ্ত <mark>া , পারফেমন</mark> � ্স <mark>ট</mark> **্** র <mark>ািকং ) সম</mark> ্প <mark>েক</mark> � <mark>আপনার পিরিচিত কতটক</mark> ু <mark>? )</mark> ু 
+
+<mark>5. Which challenges are most common in worker evaluation and payment in factories? ( কারখানায় শ</mark> ্র <mark>িমক মল</mark> ূ ্য <mark>ায়ন ও �বতন প</mark> ্র <mark>দােন �কান সমস</mark> ্য <mark>াগেলা</mark> ু <mark>সবেচেয় �বিশ �দখা যায় ?  )</mark> 
+
+<mark>6.  Which factors contribute most to unfair or biased worker payments? (Tick all that apply) ( শ</mark> ্র <mark>িমেকর অন</mark> ্য <mark>ায় বা পক</mark> ্ষ <mark>পাতমলক</mark> ূ <mark>�বতেনর �পছেন �কান কারণগ</mark> ু <mark>েলা সবেচেয় �বিশ প</mark> ্র <mark>ভাব �ফেল ? ( যা প</mark> ্র <mark>েযাজ</mark> ্য <mark>সবগ</mark> ু <mark>েলা ট</mark> ি <mark>ক িদন )</mark> 
+
+<mark>7. Which worker safety issues concern you the most in factories? (Tick all that apply) ( কারখানায় �কান শ</mark> ্র <mark>িমক িনরাপত</mark> ্ত <mark>া সমস</mark> ্য <mark>াগ</mark> ু <mark>েলা আপনােক সবেচেয় �বিশ উি�গ</mark> ্ন <mark>কের ? ( যা প</mark> ্র <mark>েযাজ</mark> ্য <mark>সবগ</mark> ু <mark>েলা ট</mark> ি <mark>ক িদন )  )</mark> 
+
+<mark>8. Which financial or production challenges do small factories struggle with most? (Tick all that apply) ( �ছাট কারখানাগ</mark> ু <mark>েলা �কান আিথ</mark> � <mark>ক বা উৎপাদন সমস</mark> ্য <mark>াগেলার</mark> ু <mark>সে� সবেচেয় �বিশ লড়াই কের ? ( যা প</mark> ্র <mark>েযাজ</mark> ্য <mark>সবগ</mark> ু <mark>েলা ট</mark> ি <mark>ক িদন )  )</mark> 
+
+<mark>9.  Which features of an AI-based worker performance rating system would be most useful? (Tick all that apply) ( এআই িভিত</mark> ্ত <mark>ক শ</mark> ্র <mark>িমক পারফেমন</mark> � ্স <mark>�রটং</mark> ি <mark>িসে�েমর �কান িফচারগেলা</mark> ু <mark>সবেচেয় উপকারী হেব ?  )</mark> 
+
+<mark>10.  How helpful would a Bangla-based safety reporting system be for workers? ( বাংলা - িভিত</mark> ্ত <mark>ক �সফট</mark> ি <mark>িরেপাট</mark> ি� <mark>ং িসে�ম শ</mark> ্র <mark>িমকেদর জন</mark> ্য <mark>কতটা সহায়ক হেব ?  )</mark> 
+
+<mark>11.  Which features of production simulation would help managers most? (Tick all that apply) ( �প</mark> ্র <mark>াডাকশন িসমেলশেনর</mark> ু <mark>�কান িফচারগ</mark> ু <mark>েলা ম</mark> ্য <mark>ােনজারেদর সবেচেয় �বিশ সাহায</mark> ্য <mark>করেব ?  )</mark> 
+
+<mark>12. Which aspects of early production output prediction would be most useful? (Tick all that apply) ( প</mark> ্র <mark>াথিমক উৎপাদন আউটপ</mark> ু <mark>ট পব</mark> ূ � <mark>াভােসর �কান িদকগ</mark> ু <mark>েলা সবেচেয় উপকারী হেব ?  )</mark> 
+
+<mark>13. Which QC system features would you find most useful? (Tick all that apply) ( �কায়ািলট</mark> ি <mark>কে�াল িসে�েমর �কান িফচারগ</mark> ু <mark>েলা সবেচেয় উপকারী বেল মেন হয় ?  )</mark> 
+
+<mark>14. Which machine health & predictive maintenance features are most valuable? (Tick all that apply) ( �মিশন স</mark> ্ব <mark>াস</mark> **্** থ <mark>ও �প</mark> ্র <mark>িডকট</mark> ি <mark>ভ �মইনেটন</mark> ্য <mark>ােন</mark> ্স <mark>র �কান িফচারগ</mark> ু <mark>েলা সবেচেয় মল</mark> ূ ্য <mark>বান ? )</mark> 
+
+<mark>15. Which automated compliance / audit reports are most useful? (Tick all that apply) ( স</mark> ্ব <mark>য়ংি�য় কমপ</mark> ্ল <mark>ােয়ন</mark> ্স <mark>/ অিডট িরেপােট</mark> � <mark>র �কানগ</mark> ু <mark>েলা সবেচেয় উপকারী ?  )</mark> 
+
+<mark>16.  Which production line efficiency and waste tracking features are most valuable? (Tick all that apply) ( �প</mark> ্র <mark>াডাকশন লাইেনর দক</mark> ্ষ <mark>তা ও বজ</mark> �্য <mark>ট</mark> **্** র <mark>ািকং িফচারগ</mark> ু <mark>েলার মেধ</mark> ্য <mark>�কানগ</mark> ু <mark>েলা সবেচেয় মল</mark> ূ ্য <mark>বান ?  )</mark> 
+
+<mark>17. Which demand forecasting & cost analysis features would help small factories most? (Tick all that apply) ( চািহদা পব</mark> ূ � <mark>াভাস ও খরচ িবে�ষেণর �কান িফচারগ</mark> ু <mark>েলা �ছাট কারখানার জন</mark> ্য <mark>সবেচেয় সহায়ক ?  )</mark> 
+
+<mark>18.  Which type of predictive maintenance alerts would be most useful? (Tick all that apply) ( �কান ধরেনর �প</mark> ্র <mark>িডকট</mark> ি <mark>ভ �মইনেটন</mark> ্য <mark>ান</mark> ্স <mark>অ</mark> ্য <mark>ালাট</mark> � <mark>সবেচেয় উপকারী হেব ?  )</mark> 
+
+<mark>19. Which job sequencing methods would be most useful? (Tick all that apply) ( �কান জব িসকেয়িন</mark> ু ্স <mark>ং পদ</mark> ্ধ <mark>িতগ</mark> ু <mark>েলা সবেচেয় উপকারী ?  )</mark> 
+
+<mark>20. Which inventory management features are most important? (Tick all that apply) ( ইনেভন</mark> ্ট <mark>ির ম</mark> ্য <mark>ােনজেমেন</mark> ্ট <mark>র �কান িফচারগ</mark> ু <mark>েলা সবেচেয় গ</mark> ু <mark>র</mark> ু <mark>ত</mark> ্ব <mark>পণ</mark> ূ <mark>?  )</mark> � 
+
+<mark>21.  Which features do you find most valuable? (Tick up to 3) ( আপনার মেত �কান িফচারগ</mark> ু <mark>েলা সবেচেয় মল</mark> ূ ্য <mark>বান ? ( সেব</mark> � <mark>াচ</mark> ্চ <mark>৩ট</mark> ি <mark>)  )</mark> 
+
+<mark>22.  How useful would this system be for small and medium factories? ( এই িসে�মট</mark> ি <mark>�ছাট ও মাঝাির কারখানার জন</mark> ্য <mark>কতটা উপকারী হেব ?  )</mark> 
+
+<mark>23.  Would you recommend this system concept to small/medium factories? ( আপিন িক এই িসে�ম ধারণাট</mark> ি <mark>�ছাট / মাঝাির কারখানােক সপািরশ</mark> ু <mark>করেবন ?  )</mark> 
+
+<mark>24.  Which additional benefits would you like to see from this system? (Tick all that apply) ( এই িসে�ম �থেক আপিন আর �কান অিতিরক</mark> ্ত <mark>সিবধা</mark> ু <mark>আশা কেরন ? ( যা প</mark> ্র <mark>েযাজ</mark> ্য <mark>সবগ</mark> ু <mark>েলা ট</mark> ি <mark>ক িদন )</mark> ) 
+
+<mark>25. Suggested improvements or new features ( প</mark> ্র <mark>স</mark> ্ত <mark>ািবত উনয়ন</mark> ্ন <mark>বা নতন</mark> ু <mark>িফচােরর সপািরশ</mark> ু <mark>)</mark> 
+
+###### 3.4.2 Survey Results and Analysis: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###### **3.5 SWOT ANALYSIS** 
+
+###### **C2S - A GARMENTS MANAGEMENT SYSTEM** 
+
+###### **Strength Weakness 1. Strong Focus on Fair Worker 1. Requires Digital Literacy and Device Payment and Transparency Access** 
+
+- The system would rely on performance-based assessment coupled with transparent rating mechanisms to reduce potential biases and discretionary favoritism in the wage distribution. By directly linking payment, bonus, and incentive with the individual worker's performance, this ensures that principles of fairness are upheld and worker motivation is enhanced, while trust between workers and management is developed. 
+
+###### **2. Bangla-Based Safety Reporting System** 
+
+- Unlike traditional systems that rely on complex forms or English-based interfaces, this system allows workers to report safety concerns in Bangla. This language accessibility encourages workers to report hazards without fear or confusion, leading to early detection of safety risks and improved workplace safety. 
+
+- It assumes that the users have basic digital skills and device access, such as smartphones or computers. In factories where digital literacy is generally low, the initial adoption, without proper training, can be very difficult. 
+
+###### **2. Initial Setup and Data Entry Effort** 
+
+- To function effectively, the system requires accurate initial data entry related to workers, machines, production lines, and inventory. This setup phase may require additional time and effort from factory staff, which could slow early adoption. 
+
+###### **3. Limited Trust in Automated Ratings** 
+
+      - Some factory owners or workers may be skeptical about AI-based or automated performance ratings. Building trust in system-generated evaluations may take time and requires transparency and validation. 
+
+**3. Designed Specifically for Small and Medium Factories** 
+
+   - Most existing ERP systems are designed for large-scale factories 
+
+and are often costly and complex. This system is tailored for small and medium enterprises (SMEs), focusing on essential features, affordability, and ease of use. It helps smaller factories digitalize their operations without heavy infrastructure or training requirements. 
+
+###### **4. Predictive Features for Production and Maintenance** 
+
+- This includes predictive models such as early production capacity prediction and machine breakdown prediction. Such models enable factory owners to make well-informed decisions on time. Early production capacity prediction enables factory owners to know how much production can be done by their factories. 
+
+###### **Opportunities** 
+
+###### **1. Rising Demand for Compliance, Safety, and Digitization** 
+
+   - Factories in Bangladesh are increasingly required to comply with buyer, labor, and safety standards. This growing demand creates an opportunity for the system to support digital compliance, safety reporting, and audit preparation. 
+
+**2. Adoption by SMEs Lacking Existing Systems** 
+
+###### **Threats** 
+
+###### **1. Competitors with Established ERP Systems** 
+
+- Well-established ERP providers already dominate the market and may introduce similar features. Competing against their brand recognition and client base can be challenging. 
+
+###### **2. Resistance to Change in Traditional Factories** 
+
+- Many factories are accustomed to 
+
+   - Many small and medium factories still rely on manual processes or spreadsheets. This system can serve as their first digital management platform, offering a significant market opportunity. 
+
+**3. Potential for Integration with IoT, AI, and Mobile Applications** 
+
+   - In the future, the system can be expanded by integrating IoT sensors for machine health, AI-based predictive analytics, and mobile applications for workers and supervisors. These enhancements can increase system value and scalability. 
+
+manual workflows and may resist adopting new digital systems. Change management and user training will be critical for adoption. 
+
+**3. Data Security and Privacy Concerns** 
+
+   1. Handling worker data, performance ratings, and financial information raises concerns about data security and privacy. Any breach or misuse could reduce trust in the system. 
+
+###### **4. Unreliable Internet and Power Infrastructure** 
+
+- Inconsistent internet connectivity or power outages can disrupt system usage, especially in remote or small factory environments. Offline support or data synchronization mechanisms may be required in future implementations. 
+
+**Strategy** : The project strategy is to utilize its core strengths in reliable workers’ remuneration payment, fairness, Banglafriendliness, and predictive analytics to tap into the rising need for compliance, safety, and transformation in SME garment factory settings. By catering to SMEs that currently have inadequate structured management systems for a simplified instead of a full-fledged or complex ERPs-based system through a ‘friendly’ system that differs through a workers’ focused approach that larger players currently fail to consider or engage due to priorities or costs. By concentrating on a strategy that mitigates current weaknesses in ‘digital illiteracy requirements’, ‘time-consuming startup processes’, ‘trust in automated ratings’, for instance, through ‘intuitive UI design’, ‘step-by-step startup processes’, ‘easy-to-understand performance explanations’, or ‘gradual uptake’, potential risks through ‘already established ERPs players’, ‘change resistance’, ‘data security risks’, or ‘environment or connectivity constraints’, for instance, through ‘modular platform design’, ‘strict data security processes’, ‘compliance-friendly reporting processes’, or ‘planned added capabilities for future ‘go-offline capabilities’, respectively. 
+
+### **CHAPTER 4: Design of the System** 
+
+###### **4.1 Introduction** 
+
+This chapter describes the system design of the Garments Worker Management and Production Optimization System. It defines the interaction of various users of the system and the system functionalities. The system design described in this chapter mainly deals with the UI/UX prototyping of the project, in which Figma tools are utilized. The system design deals with the system flow, user, and system functionalities. 
+
+###### **4.2 Context Diagram** 
+
+In the Context Diagram, how the system interacts with the outside entities is depicted. This is where the system boundaries are emphasized, giving a general idea of interactions involving the flow of data from/to the system or outside systems. 
+
+
+
+Figure: Context Diagram of C2S 
+
+###### **4.3 Use-Case Diagram** 
+
+###### **Actors:** 
+
+- Worker 
+
+- Line Manager 
+
+- Admin 
+
+- QC / Maintenance Staff 
+
+- External Systems 
+
+###### **Use Cases:** 
+
+- Authentication 
+
+- Worker-Related Use Cases 
+
+- Production & Management Use Cases 
+
+- Payroll & Finance Use Cases 
+
+- Quality & Maintenance Use Cases 
+
+- Compliance & Reporting 
+
+###### **4.3.1 Use Case description:** 
+
+_UC 01:_ 
+
+- **Name:** Submit Attendance 
+
+- **Description :** The Workers get a portal to fill out their attendance so that they can be evaluated further 
+
+- **Primary Actors** : Workers 
+
+- **Preconditions :** The worker must be logged in the system 
+
+- **Success Scenario:** 
+
+   - Worker Select submit Attendance 
+
+   - System auto fills out the date and time 
+
+   - Attendance is saved successfully 
+
+   - Worker receives confirmation 
+
+- **Alternate Scenario :** 
+
+   - Network issue, User shown the message "Try again later" the user retries 
+
+   - Duplicate submission as the submission can occur only once 
+
+- **Post Condition:** Attendance Stored in database 
+
+###### _UC 02 :_ 
+
+- **Name:** Report Safety and Faulty Machines 
+
+- **Description:** The Workers get a portal to raise their complaint regarding surroundings or working machines 
+
+- **Primary Actors:** Workers 
+
+- **Secondary Actors:** Admin and Line managers 
+
+- **Preconditions :** The worker must be logged in the system 
+
+- **Success Scenario:** 
+
+   - Worker selects an issue to report 
+
+   - Workers describe the issue in their own words 
+
+   - The issue is submitted to Admin and Line Manager 
+
+   - Worker receives confirmation 
+
+- **Alternate Scenario :** 
+
+   - Worker has incomplete description 
+
+   - Lost internet connection caused the issue to be not addressed, so when the internet restores the user can continue from there. 
+
+- **Post Condition:** Their report is stored into database and authority will be looking in 
+
+###### _UC 03 :_ 
+
+- **Name:** Manage Worker Performance 
+
+- **Description :** The line manager can view the current conditions of the workers and take decisions 
+
+- **Primary Actors :** Line manager 
+
+- **Secondary Actors :** Auditors and workers 
+
+- **Preconditions :** 
+
+   - The line manager must be logged in 
+
+   - The worker must provide their attendance and task list 
+
+- **Success Scenario:** 
+
+   - The system provides predictions using the workers' data 
+
+   - The manager checks the predictions and makes the data consistent 
+
+   - The evaluation is sent to workers and auditors 
+
+- **Alternate Scenario:** 
+
+   - The worker did not fill their prerequisite data, then the line manager need to handle this manually. 
+
+   - The evaluation did not reach the auditors then the line manager needed to send the evaluations through mail. 
+
+- **Post Condition:** Now the line is managed and the line manager can see who are doing their work sincerely and advance the project in that way 
+
+- **Name:** Plan Productions 
+
+- **Description :** Plans production output using historical and real-time data. 
+
+- **Primary Actors :** Line manager 
+
+- **Secondary Actors :** Admin and workers 
+
+- **Preconditions:** 
+
+   - The line manager must have the detail of all the equipment 
+
+   - The line manager must have in-depth knowledge of the work force 
+
+- **Success Scenario :** 
+
+   - The manager selects a production plan 
+
+   - They give the parameters and ask the system to give a suitable plan 
+
+   - The system gives a plan based on the previous datasets 
+
+   - The plan is reviewed thoroughly and the manager makes some tweaks 
+
+   - The manager asks the system to save the plan 
+
+- **Alternate Scenario:** 
+
+   - The manager does not have accurate/ missing data then they will need to take help of UCОЗ 
+
+   - The system fails to provide the idea then the manager needs to try again 
+
+- **Post Condition:** Production plan is ready for scheduling 
+
+###### _UC 05 :_ 
+
+- **Name:** Payment Processing 
+
+- **Description:** Payment is automatically sent to all the members by the Admin 
+
+- **Primary Actors :** Admin 
+
+- **Secondary Actors :** Workers, line managers, QC/Maintenance team 
+
+- **Preconditions:** 
+
+   - The admin must be logged in 
+
+   - All the users must be connected to mobile banking 
+
+- **Success Scenario :** 
+
+   - The Admin selects the pay option 
+
+   - The payroll detail is fetched from the database The system sends requests to mobile banking services for transaction 
+
+   - The transaction is made according to payroll 
+
+   - The admin gets the notifications 
+
+- **Alternate Scenario :** 
+
+   - There was an error by the system so the balances will get auto debited and credited, the admin will get notified. 
+
+   - Incomplete payroll will cause the system to stop the processing and ask the admin for the payroll 
+
+- **Post Condition:** Salaries sent to all the users 
+
+
+
+Figure:- Use Case Diagram of C2S 
+
+###### **4.4 Activity Diagram** 
+
+The Activity Diagram represents the flow of activities within the system. 
+
+37 
+
+Figure: Activity diagram for worker 
+
+
+
+Figure: Activity diagram for Line Manager 
+
+
+
+Figure: Activity diagram for Admins/SME Owners 
+
+
+
+Figure: Activity diagram for Quality Control 
+
+
+
+Figure: Activity diagram for Maintenance Members 
+
+
+
+Figure: Activity Diagram for External systems (Payment, Compliance and Audit) 
+
+###### **4.5 DFD Diagram** 
+
+
+
+Figure: DFD Diagram for C2S 
+
+###### **4.6 CRC Card** 
+
+CRC cards, which stand for **Class-Responsibility-Collaborator cards** , are a simple and effective tool used in object-oriented design to help developers conceptualize and design software systems. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure: CRC Card for C2S 
+
+###### **4.7 Class Diagram** 
+
+
+
+Figure: Class Diagram for C2S 
+
+###### **4.8 State Diagram** 
+
+
+
+
+
+Figure: State Diagram of worker for C2S                       Figure: State Diagram of Admin for C2S 
+
+###### **4.9 Sequence Diagram** 
+
+
+
+Figure: Sequence Diagram of worker for C2S 
+
+
+
+Figure: Sequence Diagram of Admin for Overtime, Incentive and Resolve reports 
+
+### **Chapter - 5: Prototype or UI Design** 
+
+###### **5.1 Introduction:** 
+
+This chapter describes the prototype and UI design of the C2S ( A Garments Management system).The system is designed to simplify and manage garments factory operations such as production, inventory, orders, and employee records. The main goal of the UI design is to create a simple, efficient, and user-friendly interface for administrators and staff.This chapter also highlights the tools used for prototyping, key UI components, and the overall sitemap of the system. The proposed UI ensures smooth navigation, clear data presentation, and improved workflow management within the garments industry. 
+
+###### **5.2 Prototyping Tools Used:** 
+
+The following resources were used to guarantee a functional and aesthetically pleasing prototype: 
+
+1. Figma: For producing interactive prototypes and high-fidelity wireframes. The design team was able to get comments in real time because of Figma's collaborative features. 
+
+2. Canva: Facilitated the production of graphic materials, including promotional images and symbols. 
+
+###### **5.3 UI Design:** 
+
+In order to satisfy the needs of its intended audience, Project C2S’s user interface design prioritizes accessibility, simplicity, and customization. Key components of the design include the following: 
+
+###### **Rules of UI Design:** 
+
+To specify best practices for efficient user interface design, a number of well-known guideline frameworks have been put out, including Norman's Design Principles, Shneiderman's Eight Golden Rules, and the Three Golden Rules. 
+
+###### **Mandel's Golden Rules:** 
+
+These rules fall into three major categories: 
+
+- Give Users Authority 
+
+- Reduce the Memory Load of Users 
+
+- Preserve Interface Uniformity 
+
+A set of particular guidelines that direct the design process are included in each area. The rules, along with a key concept for each group, are outlined below. 
+
+###### **Place Users in Control** 
+
+- Prefer modeless interactions and use interface modes with caution. 
+
+- Allow for versatile operation by supporting both keyboard and mouse inputs. 
+
+- Make it simple for users to pause ongoing actions or change their focus (interruptible). 
+
+- Provide labels and statements that are clear, instructive, and useful. 
+
+- Give prompt feedback and permit actions to be reversed or rectified (forgiving) 
+
+- Make sure there are well-defined routes and exit options for easy navigation. 
+
+- Create a system that is accessible to people with different levels of experience. 
+
+- To make tasks easier to complete, keep the interface clear and uncomplicated. 
+
+- Permit customization choices to accommodate each user's preferences 
+
+- Permit direct interaction with objects and elements on the screen (interactive) 
+
+###### **Reduce Users’ Memory Load** 
+
+- Reduce the amount of information that users must retain. 
+
+- Create user interfaces that prioritize recognition over recall. 
+
+- Make use of obvious visual cues and indicators (inform) 
+
+- Provide default settings in addition to redo and undo capabilities (forgiving) 
+
+- Give frequently used actions shortcuts (frequency) 
+
+- Promote an intuitive, natural object-action interaction style. 
+
+- Use metaphors and well-known real-world concepts (transfer) 
+
+- Information should be gradually revealed in accordance with user demands (context). 
+
+- Keep your visual layout tidy and well-structured. 
+
+###### **5.3.1 Color Palette** 
+
+Primary Colors: To provide maximum contrast and readability, black, white, and yellow are utilized as the major colors to create a clean, polished, and contemporary appearance. 
+
+Secondary Colors: To give the interface visual harmony and a serene, user-friendly vibe, blue tones and delicate pastel hues are used as secondary colors. 
+
+Accent Colors: To draw attention to key components like buttons, alerts, and call-to-action elements, yellow is employed as the accent color. 
+
+###### **5.3.2 Typography** 
+
+Headings: To guarantee a clear hierarchy and powerful visual emphasis, the Roboto font's bold weight is employed for headings. 
+
+Body Text: To preserve readability and a neat, polished appearance, Roboto typeface is used in both regular and light weights for body text. 
+
+###### **5.3.3 Layout** 
+
+**Navigation:** To guarantee easy and simple navigation, a bottom navigation bar with five main tabs is designed: 
+
+Home: Offers a summary of the system and emphasizes important details. About Us: Explains the organization's goals. 
+
+Services: Shows the system's features and services that are available. Features: Highlights the system's primary tools and features. Contact  us: enables users to contact them via a feedback form or contact information. 
+
+**Card-Based Interface:** A card-based structure is used to convey actions and information, making it simple to scan and interact with the content. 
+
+The UI is completely responsive, guaranteeing uniform use across desktop, tablet, and smartphone devices. 
+
+###### **5.3.4 Key Features** 
+
+###### **Worker Performance and Rating System:** 
+
+The system includes a worker performance and rating module that monitors individual productivity, work quality, and task completion. Performance ratings are generated based on predefined criteria, allowing management to evaluate workers fairly and consistently. 
+
+###### **Performance-Based Payment System:** 
+
+A performance-based payment mechanism is integrated into the system, where worker compensation is calculated according to performance scores, productivity levels, and completed work. This approach encourages efficiency, accountability, and improved overall output. 
+
+###### **Worker Reporting System:** 
+
+The worker reporting system enables supervisors to generate detailed reports on worker performance, attendance, and payment history. These reports support transparency, informed decision-making, and effective workforce management. 
+
+###### **5.4 Sitemap** 
+
+The C2S Garments Management System's structure and navigation are outlined in the sitemap. To create a seamless and simple user experience, it divides the system into distinct and easy-to-understand areas. 
+
+###### **5.4.1 Overview of Sitemap** 
+
+###### **1. Landing Page:** 
+
+- Introduction to the platform. 
+
+- Options to sign up or log in. 
+
+
+
+###### **About Us** 
+
+
+
+###### **Services** 
+
+
+
+###### **Features** 
+
+
+
+###### **Contact Us:** 
+
+
+
+###### **5.4.2 The Flow of Navigation** 
+
+- The Landing Page is where users start. 
+
+- Users have the option to log in as either Worker or Admin. 
+
+   - ➢ Admin: Goes to the Admin Dashboard, which is the main location for handling orders, production, inventory, and personnel records. 
+
+   - ➢ Worker: Directed to the Worker Dashboard, which offers reporting capabilities, performance monitoring, and assigned duties. 
+
+- The bottom navigation bar makes it simple for users to access all other sections from the corresponding dashboards. 
+
+- For easy navigation, each part keeps a uniform style and provides fast return choices to the dashboard. 
+
+### **Conclusion:** 
+
+The prototype and UI design of the **C2S Garments Management System** are based on the principles of simplicity, consistency, and accessibility. Through clear layouts, intuitive navigation, and visually organized interfaces, the system provides an efficient and user-friendly environment for both administrators and workers to manage production, inventory, and performance effectively. 
+
+##### **Figma Prototype:** 
+
+###### **Login Page : (As Worker)** 
+
+
+
+###### **As Admin** 
+
+
+
+###### **Dashboard: ( As Worker)** 
+
+
+
+###### **Dashboard: ( As Admin)** 
+
+
+
+<!-- Start of picture text -->
+56<br><!-- End of picture text -->
+
+###### **Worker Payment:** 
+
+
+
+###### **Worker Performance:** 
+
+
+
+###### **Job Sequencing:** 
+
+
+
+###### **Waste & Sustainability:** 
+
+
+
+###### **Worker Reporting System:** 
+
+
+
+###### **AI Insights** 
+
+
+
+###### **Attendance & Shifts for worker:** 
+
+
+
+###### **Production  Line :** 
+
+
+
+###### **Inventory:** 
+
+
+
+###### **Machine Maintenance:** 
+
+
+
+###### **Quality Control:** 
+
+
+
+……………………The End………………….

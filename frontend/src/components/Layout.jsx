@@ -2,78 +2,130 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Layout.css';
 
+const ALL_NAV_ITEMS = [
+  { title: 'Overview', isSection: true },
+  { path: '/dashboard', label: 'Dashboard', icon: 'fas fa-home' },
+  { path: '/rewards', label: 'Worker Rewards', icon: 'fas fa-award' },
+  { path: '/performance', label: 'Worker Performance', icon: 'fas fa-users-cog' },
+  { path: '/attendance', label: 'Attendance & Shifts', icon: 'fas fa-calendar-check' },
+
+  { title: 'Manufacturing', isSection: true },
+  { path: '/production', label: 'Production Lines', icon: 'fas fa-industry' },
+  { path: '/job-sequencing', label: 'Job Sequencing', icon: 'fas fa-tasks' },
+  { path: '/inventory', label: 'Inventory Catalog', icon: 'fas fa-boxes' },
+  { path: '/quality-control', label: 'Quality Control', icon: 'fas fa-check-circle' },
+  { path: '/waste', label: 'Waste Tracking', icon: 'fas fa-recycle' },
+  { path: '/machines', label: 'Machine Fleet', icon: 'fas fa-cogs' },
+
+  { title: 'Intelligence & Safety', isSection: true },
+  { path: '/safety', label: 'Worker Safety (বাং)', icon: 'fas fa-shield-alt', badge: 'Bangla' },
+  { path: '/ai-insights', label: 'AI Insights', icon: 'fas fa-brain', badge: 'AI' },
+  { path: '/reports', label: 'Reports & Compliance', icon: 'fas fa-file-contract' },
+  { path: '/chats', label: 'Internal Chats', icon: 'fas fa-comments', badge: '3' },
+  { path: '/settings', label: 'Settings', icon: 'fas fa-cog' },
+];
+
+const ROLE_PERMISSIONS = {
+  admin: [
+    '/dashboard',
+    '/rewards',
+    '/performance',
+    '/attendance',
+    '/safety',
+    '/ai-insights',
+    '/reports',
+    '/chats',
+  ],
+  line_manager: [
+    '/dashboard',
+    '/rewards',
+    '/performance',
+    '/attendance',
+    '/production',
+    '/job-sequencing',
+    '/inventory',
+    '/quality-control',
+    '/waste',
+    '/machines',
+  ],
+  qc_inspector: [
+    '/dashboard',
+    '/rewards',
+    '/performance',
+    '/attendance',
+    '/production',
+    '/job-sequencing',
+    '/inventory',
+    '/quality-control',
+    '/waste',
+    '/machines',
+  ],
+  maintenance_staff: [
+    '/dashboard',
+    '/rewards',
+    '/performance',
+    '/attendance',
+    '/production',
+    '/job-sequencing',
+    '/inventory',
+    '/quality-control',
+    '/waste',
+    '/machines',
+  ],
+  auditor: [
+    '/dashboard',
+    '/rewards',
+    '/performance',
+    '/attendance',
+    '/production',
+    '/job-sequencing',
+    '/inventory',
+    '/quality-control',
+    '/waste',
+    '/machines',
+  ],
+};
+
 const Layout = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const user = JSON.parse(localStorage.getItem('user')) || {
-    full_name: 'Admin User',
-    role: 'admin',
-  };
+  const user = JSON.parse(localStorage.getItem('user')) || null;
 
   const handleLogout = () => {
     localStorage.removeItem('user');
     navigate('/login');
   };
 
-  const navItems = [
-    { title: 'Overview', isSection: true },
-    { path: '/dashboard', label: 'Dashboard', icon: 'fas fa-home' },
-    { path: '/rewards', label: 'Worker Rewards', icon: 'fas fa-award' },
-    {
-      path: '/performance',
-      label: 'Worker Performance',
-      icon: 'fas fa-users-cog',
-    },
-    {
-      path: '/attendance',
-      label: 'Attendance & Shifts',
-      icon: 'fas fa-calendar-check',
-    },
+  const userRole = user?.role || 'admin';
+  const allowedPaths = ROLE_PERMISSIONS[userRole] || ROLE_PERMISSIONS.admin;
 
-    { title: 'Manufacturing', isSection: true },
-    { path: '/production', label: 'Production Lines', icon: 'fas fa-industry' },
-    { path: '/job-sequencing', label: 'Job Sequencing', icon: 'fas fa-tasks' },
-    { path: '/inventory', label: 'Inventory Catalog', icon: 'fas fa-boxes' },
-    {
-      path: '/quality-control',
-      label: 'Quality Control',
-      icon: 'fas fa-check-circle',
-    },
-    { path: '/waste', label: 'Waste Tracking', icon: 'fas fa-recycle' },
-    { path: '/machines', label: 'Machine Fleet', icon: 'fas fa-cogs' },
-
-    { title: 'Intelligence & Safety', isSection: true },
-    {
-      path: '/safety',
-      label: 'Worker Safety (বাং)',
-      icon: 'fas fa-shield-alt',
-      badge: 'Bangla',
-    },
-    {
-      path: '/ai-insights',
-      label: 'AI Insights',
-      icon: 'fas fa-brain',
-      badge: 'AI',
-    },
-    {
-      path: '/reports',
-      label: 'Reports & Compliance',
-      icon: 'fas fa-file-contract',
-    },
-    {
-      path: '/chats',
-      label: 'Internal Chats',
-      icon: 'fas fa-comments',
-      badge: '3',
-    },
-    { path: '/settings', label: 'Settings', icon: 'fas fa-cog' },
-  ];
+  const navItems = ALL_NAV_ITEMS.filter((item) => {
+    if (item.isSection) return true;
+    return allowedPaths.includes(item.path);
+  });
 
   const currentDate = new Date().toLocaleDateString('en-GB', {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
   });
+
+  if (!user) {
+    return (
+      <div className="layout-container">
+        <div className="layout-main">
+          <div className="layout-content">
+            <div style={{ padding: '2rem', textAlign: 'center' }}>
+              <p>Please log in to access the system.</p>
+              <button className="btn btn-primary" onClick={() => navigate('/login')}>
+                Go to Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="layout-container">

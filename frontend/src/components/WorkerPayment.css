@@ -1,0 +1,422 @@
+/* WorkerPayment.css */
+
+.wp-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.wp-loading {
+  text-align: center;
+  padding: 4rem;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.wp-error-banner {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wp-payslip-card {
+  background: linear-gradient(135deg, #002F31 0%, #1A5653 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,47,49,0.3);
+  color: #ffffff;
+}
+
+.wp-payslip-header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.wp-payslip-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wp-payslip-title i {
+  font-size: 1.75rem;
+  color: #F5C518;
+}
+
+.wp-payslip-title h2 { font-size: 1.1rem; font-weight: 700; }
+.wp-payslip-title p  { font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-top: 0.15rem; }
+
+.wp-status-tag {
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.status-paid       { background: #dcfce7; color: #15803d; }
+.status-pending    { background: #fef3c7; color: #b45309; }
+.status-processing { background: #dbeafe; color: #1d4ed8; }
+
+.wp-payslip-body {
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) { .wp-payslip-body { grid-template-columns: 1fr; } }
+
+.wp-payslip-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.wp-pay-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.85);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.wp-pay-row:last-child { border-bottom: none; }
+.wp-pay-row span:first-child { display: flex; align-items: center; gap: 0.4rem; }
+.wp-pay-row.positive i { color: #7BC47F; }
+.wp-pay-row.negative i { color: #fca5a5; }
+.wp-pay-row.negative { color: rgba(252,165,165,0.9); }
+
+.wp-total-row {
+  border-top: 1.5px solid rgba(255,255,255,0.2) !important;
+  margin-top: 0.4rem;
+  padding-top: 0.8rem !important;
+  font-weight: 700;
+  font-size: 0.95rem !important;
+  color: #ffffff !important;
+}
+
+.wp-net-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #F5C518 !important;
+}
+
+.wp-payslip-chart h4 {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.wp-chart-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.wp-chart-label {
+  width: 80px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+}
+
+.wp-chart-track {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.wp-chart-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 600ms ease;
+}
+
+.wp-chart-val {
+  width: 75px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.85);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.wp-payslip-footer {
+  background: rgba(0,0,0,0.2);
+  padding: 0.85rem 2rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wp-payslip-footer i { color: #F5C518; }
+
+.wp-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wp-section-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wp-section-header h3 i { color: #1A5653; }
+
+.wp-record-count {
+  font-size: 0.78rem;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.wp-add-btn {
+  padding: 0.55rem 1.25rem;
+  background: #1A5653;
+  color: #F5C518;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 150ms ease;
+}
+
+.wp-add-btn:hover { background: #002F31; }
+
+.wp-methods-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wp-empty-methods {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 2px dashed #d1fae5;
+  color: #94a3b8;
+}
+
+.wp-empty-methods i { font-size: 2rem; color: #d1fae5; }
+
+.wp-add-btn-sm {
+  padding: 0.45rem 1rem;
+  background: #1A5653;
+  color: #F5C518;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.wp-method-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1.5px solid #e2e8f0;
+  min-width: 220px;
+  flex: 1;
+  max-width: 280px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  transition: all 150ms ease;
+}
+
+.wp-method-card:hover { border-color: #1A5653; }
+
+.wp-method-card.primary {
+  border-color: #F5C518;
+  background: linear-gradient(135deg, #fffbeb, #fef9c3);
+}
+
+.wp-method-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.wp-method-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.wp-method-type { font-size: 0.85rem; font-weight: 700; color: #0f172a; }
+.wp-method-acc  { font-size: 0.8rem; color: #64748b; font-family: monospace; }
+.wp-method-name { font-size: 0.75rem; color: #94a3b8; }
+
+.wp-method-actions { flex-shrink: 0; }
+
+.wp-primary-tag {
+  background: #F5C518;
+  color: #0f172a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.wp-set-primary {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 150ms ease;
+}
+
+.wp-set-primary:hover {
+  background: #1A5653;
+  color: #fff;
+  border-color: #1A5653;
+}
+
+.wp-history-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.wp-table-wrap { overflow-x: auto; }
+
+.wp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.wp-table thead th {
+  background: #002F31;
+  color: #e2f5e2;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.wp-table tbody td {
+  padding: 0.75rem 1rem;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.wp-table tbody .row-white { background: #ffffff; }
+.wp-table tbody .row-teal  { background: #f0fdf4; }
+
+.wp-empty-row {
+  text-align: center;
+  color: #94a3b8;
+  padding: 2.5rem !important;
+}
+
+.wp-method-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.wp-type-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: #334155;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 150ms ease;
+}
+
+.wp-type-btn:hover { border-color: #1A5653; background: #f0fdf4; }
+.wp-type-btn.active { font-weight: 700; }
+
+.wp-primary-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #334155;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.wp-submit-btn {
+  padding: 0.55rem 1.25rem;
+  background: #1A5653;
+  color: #F5C518;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 150ms ease;
+}
+
+.wp-submit-btn:hover { background: #002F31; }
+.wp-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }

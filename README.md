@@ -1,4 +1,4 @@
-# C2S Smart Garments Management System 
+# C2S Smart Garments Management System v2.0
 
 A modern, full-stack enterprise Garments Manufacturing Execution System (MES) designed for high-throughput apparel production facilities. Built with a decoupled React frontend, containerized PHP 8.2 backend, and normalized MySQL 8.0 relational database.
 
