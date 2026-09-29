@@ -1,0 +1,150 @@
+Implementation Plan: C2S Garments Management System Architecture & Module Implementation
+Establish a robust, scalable garments factory management architecture integrating a standardized Design System, normalized MySQL database contracts, unified REST API endpoints, full 15-screen UI/UX implementations, production-ready Docker containers, and GitHub Actions CI/CD pipelines.
+
+User Review Required
+IMPORTANT
+
+Environment & Runtime Availability:
+
+Node.js (v22.15.0), npm (10.9.2), and Docker (29.0.1) are verified and active on the host machine.
+PHP is not installed on the Windows host's system PATH. However, we have delivered a containerized PHP 8.2 + Apache environment with pdo_mysql and mysqli via docker-compose.yml, allowing seamless execution without manual Windows PHP configuration.
+Figma Personal Access Token: The Figma MCP tool returned FIGMA_API_KEY is not set. All screen details, component structures, dynamic fields, popups, and flow transitions have been extracted and cross-referenced from input.md and the provided Figma node specifications. If you would also like raw SVG/thumbnail exports pulled directly via the Figma MCP, please provide your Figma Personal Access Token.
+Proposed Architectural Phases
+Phase 1: Specifications & Design System (COMPLETED)
+ Create 
+DESIGN_SYSTEM.md
+: Design audit, standard color/typography/spacing tokens, component shapes, and 42-screen dynamic inventory.
+ Create 
+API_SPEC.md
+: Full REST API contracts, envelopes, request/response models for all 15 modules.
+ Create 
+database/schema_v2.sql
+: Normalized relational schema with 14 tables covering all flows.
+ Create production Docker setup: 
+docker-compose.yml
+, 
+frontend/Dockerfile
+, 
+frontend/nginx.conf
+, 
+backend/Dockerfile
+.
+ Create CI/CD workflows: 
+.github/workflows/ci.yml
+ and 
+.github/workflows/docker-build.yml
+.
+Phase 2: Database & Backend Endpoints Implementation
+Implement backend handlers in backend/ adhering to API_SPEC.md with prepared statements and input validation:
+
+[MODIFY] 
+backend/config.php
+Support environment variables (DB_HOST, DB_USER, DB_PASS, DB_NAME) for seamless Docker and local XAMPP switching.
+[NEW] 
+backend/workers.php
+Endpoints for worker listing, performance appraisals, training assignment (assign_training), and rewards (award_recognition).
+[NEW] 
+backend/attendance.php
+Endpoints for attendance tracking, shift filtering, and line availability matrix (availability).
+[NEW] 
+backend/production.php
+Endpoints for production line status, capacity monitoring, and line creation (create_line).
+[NEW] 
+backend/waste.php
+Endpoints for waste tracking, logging new waste, and applying nesting optimization patterns (apply_pattern).
+[NEW] 
+backend/quality.php
+Endpoints for quality control inspection stats, creating inspection records, defect breakdown, and inspection history.
+[NEW] 
+backend/safety.php
+Endpoints for Bangla-first worker safety incident reporting, incident resolution, history, and verification audit trail.
+[NEW] 
+backend/jobs.php
+Endpoints for job sequencing queue, order scheduling, priority reordering, and line bottleneck checks.
+[NEW] 
+backend/machines.php
+Endpoints for machine fleet health tracking, work order generation (create_work_order), and maintenance log exports.
+[NEW] 
+backend/ai.php
+Endpoints for predictive analytics, 7-day capacity simulation, bottleneck warnings, and recommended worker reallocations.
+[NEW] 
+backend/reports.php
+Endpoints for compliance checklists (Labor Law 2006, ILO), buyer audit dossiers, daily production ledgers, and share link generation.
+[NEW] 
+backend/chats.php
+Endpoints for team channel messages, announcements, and direct messaging between admins, supervisors, and QC officers.
+Phase 3: Frontend Integration & Component Implementation
+Harmonize styling using DESIGN_SYSTEM.md CSS variables and implement complete end-to-end user flows:
+
+[MODIFY] 
+frontend/src/index.css
+ & 
+frontend/src/App.css
+Integrate :root design system tokens, global button classes, badge classes, modal styles, and layout reset.
+[MODIFY] 
+frontend/src/api.js
+Extend Axios API clients with fallback mock data layer to ensure 100% resilient UI operation both with and without active MySQL backend.
+[MODIFY] 
+frontend/src/App.jsx
+Register all 15 routes:
+/dashboard
+/rewards (Worker Recognition & Rewards)
+/attendance (Attendance & Shifts with Check Availability modal)
+/performance (Worker Performance with Assign Training modal)
+/production (Production Line with Create Production Line modal)
+/waste (Waste Tracking with New Waste, Export Report, Apply Pattern modals)
+/chats (Team messaging & channels)
+/quality-control (Quality Control with Start Inspection, View Inspect, QC History)
+/safety (Worker Safety Reporting with Details, Resolve, and History modals)
+/job-sequencing (Job Sequencing with Add Job modal)
+/inventory (Inventory with Add Product modal)
+/machines (Machine Maintenance with New Work Order modal)
+/ai-insights (AI Capacity Simulation & Recommendations)
+/reports (Reports & Compliance with Checklist, Ledger, and Share modals)
+/settings (Admin Settings)
+[NEW] Component Modules in frontend/src/components/
+[NEW] WorkerRecognition.jsx & WorkerRecognition.css
+[NEW] Attendance.jsx & Attendance.css
+[NEW] WorkerPerformance.jsx & WorkerPerformance.css
+[NEW] ProductionLine.jsx & ProductionLine.css
+[NEW] WasteTracking.jsx & WasteTracking.css
+[NEW] Chats.jsx & Chats.css
+[NEW] JobSequencing.jsx & JobSequencing.css
+[NEW] MachineMaintenance.jsx & MachineMaintenance.css
+[NEW] AIInsights.jsx & AIInsights.css
+[NEW] ReportsCompliance.jsx & ReportsCompliance.css
+[MODIFY] Dashboard.jsx, Inventory.jsx, QualityControl.jsx, WorkerReporting.jsx, Settings.jsx to apply standardized design tokens and hook up modal navigation.
+Verification Plan
+Automated Tests
+Frontend Production Build:
+bash
+
+cd frontend && npm run build
+Linting Check:
+bash
+
+cd frontend && npm run lint --if-present
+Docker Compose Validation:
+bash
+
+docker compose config
+Backend PHP Syntax Check:
+powershell
+
+Get-ChildItem -Path backend/*.php | ForEach-Object { php -l $_.FullName }
+Manual Verification
+Navigation Flow Verification:
+Launch frontend dev server (npm run dev) and test navigation to each of the 15 menu tabs.
+Verify modal popup triggers on every primary action:
+Attendance -> "Check Availability" modal
+Worker Performance -> "Assign Training" modal
+Production Line -> "Create Production Line" modal
+Waste Tracking -> "New Waste", "Export Data", "Apply Pattern" modals
+Quality Control -> "Start New Inspection", "View Details", "View All Inspection"
+Safety Reporting -> "View Details", "Resolve", "Resolve History"
+Job Sequencing -> "Add Job" modal
+Inventory -> "Add Product" modal
+Machine Maintenance -> "New Work Order" modal
+Reports & Compliance -> "Manage Checklist", "Share", "View Reassessment"
+Design System Consistency:
+Verify consistent colors, typography, margins, border radii, and button shapes across all screens.

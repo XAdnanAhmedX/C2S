@@ -4,31 +4,42 @@ import { authAPI } from '../api';
 import './LoginPage.css';
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('admin@c2s.com');
-  const [password, setPassword] = useState('admin123');
-  const [role, setRole] = useState('admin'); // 'admin' or 'worker'
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('admin');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
 
-    const userObj = {
-      id: role === 'admin' ? 1 : 14,
-      email: email,
-      full_name:
-        role === 'admin' ? 'Taskin Amir (Admin)' : 'Md. Rafiq (Worker)',
-      role: role,
-    };
+    try {
+      const res = await authAPI.login(email, password);
 
-    localStorage.setItem('user', JSON.stringify(userObj));
-    await authAPI.login(email, password);
+      if (res && res.data && res.data.success && res.data.user) {
+        const finalUser = res.data.user;
+        localStorage.setItem('user', JSON.stringify(finalUser));
 
-    setTimeout(() => {
+        setTimeout(() => {
+          setLoading(false);
+          if (finalUser.role === 'worker') {
+            navigate('/worker-dashboard');
+          } else {
+            navigate('/dashboard');
+          }
+        }, 350);
+      } else {
+        setLoading(false);
+        setError(res?.data?.message || 'Login failed. Please check your credentials.');
+      }
+    } catch (err) {
       setLoading(false);
-      navigate(role === 'admin' ? '/dashboard' : '/safety');
-    }, 400);
+      setError('Login failed. Please check your credentials and try again.');
+      console.error(err);
+    }
   };
 
   return (
@@ -77,7 +88,9 @@ const LoginPage = () => {
               className={`role-tab-btn ${role === 'admin' ? 'active' : ''}`}
               onClick={() => {
                 setRole('admin');
-                setEmail('admin@c2s.com');
+                setEmail('');
+                setPassword('');
+                setError('');
               }}
             >
               <i className="fas fa-user-shield"></i> Admin / Management
@@ -87,7 +100,9 @@ const LoginPage = () => {
               className={`role-tab-btn ${role === 'worker' ? 'active' : ''}`}
               onClick={() => {
                 setRole('worker');
-                setEmail('worker@c2s.com');
+                setEmail('');
+                setPassword('');
+                setError('');
               }}
             >
               <i className="fas fa-user-hard-hat"></i> Factory Worker
@@ -95,6 +110,12 @@ const LoginPage = () => {
           </div>
 
           <form onSubmit={handleLogin} className="login-form-fields">
+            {error && (
+              <div className="login-error-banner">
+                <i className="fas fa-exclamation-circle"></i> {error}
+              </div>
+            )}
+
             <div className="form-group">
               <label className="form-label">Email Address</label>
               <input
@@ -102,6 +123,7 @@ const LoginPage = () => {
                 className="form-control"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
                 required
               />
             </div>
@@ -113,6 +135,7 @@ const LoginPage = () => {
                 className="form-control"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
                 required
               />
             </div>

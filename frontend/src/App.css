@@ -1,28 +1,17 @@
+/* App.css - Legacy file, kept for backward compatibility.
+   All styles have been migrated to index.css using the design system tokens. */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --primary-dark: #1a2f23;
-  --primary-teal: #2d5a4a;
-  --accent-yellow: #f4d03f;
-  --accent-green: #27ae60;
-  --accent-blue: #3498db;
-  --accent-red: #e74c3c;
-  --text-light: #ffffff;
-  --text-dark: #333333;
-  --bg-light: #f5f5f5;
-  --bg-white: #ffffff;
-  --border-color: #ddd;
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
-  line-height: 1.6;
+  font-family: var(--font-family-base);
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-900);
+  line-height: 1.5;
 }
 
 #root {
